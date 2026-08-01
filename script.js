@@ -27,7 +27,7 @@ function renderProducts(products) {
 // Запрос товаров с Python-бэкенда
 async function fetchProductsFromBackend() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/products');
+        const response = await fetch('https://l-market.onrender.com/api/products');
         allProducts = await response.json();
         renderProducts(allProducts);
     } catch (error) {
