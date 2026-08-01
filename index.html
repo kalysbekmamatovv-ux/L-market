@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-MARKET — Маркетплейс</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">L-MARKET</div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Искать товары, бренды...">
+            <button onclick="searchItems()">Найти</button>
+        </div>
+        <div class="user-actions">
+            <button class="action-btn" onclick="uploadProduct()">+ Продать товар</button>
+            <button class="action-btn">Профиль</button>
+            <button class="action-btn">Корзина (<span id="cartCount">0</span>)</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="wallet-banner">
+            <div class="wallet-info">
+                <h3>Карта L-Market</h3>
+                <p>Оплачивайте покупки со скидкой 5%. Баланс: <strong>0 сом</strong></p>
+            </div>
+            <button class="top-up-btn" onclick="topUpWallet()">Пополнить</button>
+        </div>
+
+        <h2 class="section-title">Рекомендации</h2>
+        <div class="products-grid" id="recommendationsGrid">
+            </div>
+    </main>
+
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <h3>Выставить товар на продажу</h3>
+            <input type="text" id="newTitle" placeholder="Название товара">
+            <input type="text" id="newPrice" placeholder="Цена (например: 1 500 c.)">
+            <input type="text" id="newImg" placeholder="Ссылка на картинку (необязательно)">
+            <div class="modal-buttons">
+                <button onclick="submitProduct()" class="btn-primary">Добавить</button>
+                <button onclick="closeModal()" class="btn-secondary">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
