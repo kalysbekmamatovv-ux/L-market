@@ -3,52 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L-MARKET — Маркетплейс</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>MobiStore | Магазин будущего</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
 </head>
 <body>
-
     <header>
-        <div class="logo">L-MARKET</div>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Искать товары, бренды...">
-            <button onclick="searchItems()">Найти</button>
-        </div>
-        <div class="user-actions">
-            <button class="action-btn" onclick="uploadProduct()">+ Продать товар</button>
-            <button class="action-btn">Профиль</button>
-            <button class="action-btn">Корзина (<span id="cartCount">0</span>)</button>
-        </div>
+        <div class="logo">MobiStore</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#catalog">Каталог</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <div class="wallet-banner">
-            <div class="wallet-info">
-                <h3>Карта L-Market</h3>
-                <p>Оплачивайте покупки со скидкой 5%. Баланс: <strong>0 сом</strong></p>
+        <section class="hero" id="home">
+            <div class="hero-text">
+                <h1>Представляем iPhone 18 Pro</h1>
+                <p>Покрутите модель, чтобы рассмотреть её со всех сторон.</p>
             </div>
-            <button class="top-up-btn" onclick="topUpWallet()">Пополнить</button>
-        </div>
 
-        <h2 class="section-title">Рекомендации</h2>
-        <div class="products-grid" id="recommendationsGrid">
+            <div class="model-container">
+                <!-- В атрибуте src вставляется прямая ссылка (URL) на 3D-модель -->
+                <model-viewer id="phone-model"
+                              src="https://ссылка-на-ваш-сайт.com/iphone18pro_red.glb" 
+                              alt="3D модель смартфона"
+                              camera-controls
+                              auto-rotate
+                              shadow-intensity="1.5"
+                              environment-image="neutral"
+                              exposure="1.2">
+                </model-viewer>
+
+                <div class="color-picker">
+                    <p>Выберите цвет:</p>
+                    <!-- В data-model тоже прописываем прямые URL -->
+                    <button class="color-btn red active" data-model="https://ссылка-на-ваш-сайт.com/iphone18pro_red.glb" data-color="Красный"></button>
+                    <button class="color-btn blue" data-model="https://ссылка-на-ваш-сайт.com/iphone18pro_blue.glb" data-color="Синий"></button>
+                </div>
+                <p id="color-name">Цвет: Красный</p>
             </div>
+        </section>
+
+        <section class="features" id="catalog">
+            <h2>Почему покупают у нас?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Оригинальная техника</h3>
+                    <p>Гарантия качества от производителя на все модели.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Экспресс доставка</h3>
+                    <p>Привезем ваш новый смартфон прямо до двери за 2 часа.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <div id="uploadModal" class="modal">
-        <div class="modal-content">
-            <h3>Выставить товар на продажу</h3>
-            <input type="text" id="newTitle" placeholder="Название товара">
-            <input type="text" id="newPrice" placeholder="Цена (например: 1 500 c.)">
-            <input type="text" id="newImg" placeholder="Ссылка на картинку (необязательно)">
-            <div class="modal-buttons">
-                <button onclick="submitProduct()" class="btn-primary">Добавить</button>
-                <button onclick="closeModal()" class="btn-secondary">Отмена</button>
-            </div>
-        </div>
-    </div>
+    <footer>
+        <p>&copy; 2026 MobiStore. Все права защищены.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+
