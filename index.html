@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MobiStore | Магазин будущего</title>
+    <title>MobiStore | iPhone 18 Pro</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <!-- Подключаем 3D-библиотеку Three.js и контроллер вращения -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
+
     <header>
         <div class="logo">MobiStore</div>
         <nav>
             <ul>
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#catalog">Каталог</a></li>
+                <li><a href="#about">О нас</a></li>
             </ul>
         </nav>
     </header>
@@ -21,42 +25,39 @@
     <main>
         <section class="hero" id="home">
             <div class="hero-text">
-                <h1>Представляем iPhone 18 Pro</h1>
-                <p>Покрутите модель, чтобы рассмотреть её со всех сторон.</p>
+                <h1>iPhone 18 Pro</h1>
+                <p>Вращайте модель в 3D: зажмите и тяните в любую сторону (спереди, сзади, сбоку, сверху, снизу).</p>
             </div>
 
-            <div class="model-container">
-                <!-- В атрибуте src вставляется прямая ссылка (URL) на 3D-модель -->
-                <model-viewer id="phone-model"
-                              src="https://ссылка-на-ваш-сайт.com/iphone18pro_red.glb" 
-                              alt="3D модель смартфона"
-                              camera-controls
-                              auto-rotate
-                              shadow-intensity="1.5"
-                              environment-image="neutral"
-                              exposure="1.2">
-                </model-viewer>
+            <div class="model-card">
+                <!-- Блок, в котором рисуется 3D модель -->
+                <div id="canvas-container"></div>
 
-                <div class="color-picker">
-                    <p>Выберите цвет:</p>
-                    <!-- В data-model тоже прописываем прямые URL -->
-                    <button class="color-btn red active" data-model="https://ссылка-на-ваш-сайт.com/iphone18pro_red.glb" data-color="Красный"></button>
-                    <button class="color-btn blue" data-model="https://ссылка-на-ваш-сайт.com/iphone18pro_blue.glb" data-color="Синий"></button>
+                <div class="controls">
+                    <p>Выберите цвет корпуса:</p>
+                    <div class="buttons">
+                        <button id="btn-red" class="color-btn red active" title="Красный"></button>
+                        <button id="btn-blue" class="color-btn blue" title="Синий"></button>
+                    </div>
+                    <span id="color-name">Цвет: Красный</span>
                 </div>
-                <p id="color-name">Цвет: Красный</p>
             </div>
         </section>
 
         <section class="features" id="catalog">
-            <h2>Почему покупают у нас?</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Оригинальная техника</h3>
-                    <p>Гарантия качества от производителя на все модели.</p>
+            <h2>Преимущества нашего магазина</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Официальная гарантия</h3>
+                    <p>100% оригинальная техника с полноценным сервисом.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Экспресс доставка</h3>
-                    <p>Привезем ваш новый смартфон прямо до двери за 2 часа.</p>
+                <div class="card">
+                    <h3>Быстрая доставка</h3>
+                    <p>Доставим ваш новый смартфон в день заказа.</p>
+                </div>
+                <div class="card">
+                    <h3>Trade-In</h3>
+                    <p>Обменяйте старый телефон на новый с выгодой.</p>
                 </div>
             </div>
         </section>
@@ -69,4 +70,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
